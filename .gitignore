@@ -1,0 +1,67 @@
+# =====================================================================
+#  CRX-Pulse desktop app (Maven, com.crxpulse)
+# =====================================================================
+#  Placed next to pom.xml — the Maven project root — so it applies
+#  whether the repository is initialised here or one level up at
+#  "desktop app/".
+# =====================================================================
+
+# ---------- Maven build output ----------
+# target/ is everything `mvn package` produces, including
+# target/CRXPulse.jar. All of it regenerates from `mvn clean package`.
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# ...but if you ever add the Maven wrapper (`mvn wrapper:wrapper`), its
+# jar MUST be committed or ./mvnw cannot bootstrap on another machine.
+!.mvn/wrapper/maven-wrapper.jar
+
+# Maven release/versions plugin leftovers
+dependency-reduced-pom.xml
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+buildNumber.properties
+.mvn/timing.properties
+
+# ---------- credentials ----------
+# This app provisions WiFi over the serial port, so an SSID and
+# password pass through it at runtime. Nothing should be written to
+# disk here — these are a backstop in case a local config or a
+# generated header ever lands in the project.
+secrets.h
+*.env
+*credentials*
+*secret*
+!*.example
+
+# ---------- IDE / editor ----------
+.idea/
+*.iml
+*.ipr
+*.iws
+.classpath
+.project
+.settings/
+.factorypath
+nbproject/
+.metadata/
+*.swp
+*~
+
+# ---------- JVM crash / diagnostic dumps ----------
+hs_err_pid*.log
+replay_pid*.log
+*.hprof
+
+# ---------- OS cruft ----------
+.DS_Store
+Thumbs.db
+desktop.ini
+config.bat
+node_modules
